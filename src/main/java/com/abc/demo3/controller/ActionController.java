@@ -8,34 +8,66 @@ import javax.annotation.security.RolesAllowed;
 @RequestMapping("/action")
 public class ActionController {
 
-    @RolesAllowed({"STAFF", "OFFICER", "ADMIN"})
-    @GetMapping("/get")
-    public String get() {
-        String message = "get";
+    @RolesAllowed({"HR_MANAGER", "HR_STAFF", "PRODUCT_MANAGER"})
+    @GetMapping("/user/get")
+    public String getUser() {
+        String message = "get user";
         System.out.println(message);
         return message;
     }
 
-    @RolesAllowed({"OFFICER", "ADMIN"})
-    @PostMapping("/add")
-    public String add() {
-        String message = "add";
+    @RolesAllowed({"HR_MANAGER"})
+    @PostMapping("/user/add")
+    public String addUser() {
+        String message = "add user";
         System.out.println(message);
         return message;
     }
 
-    @RolesAllowed({"OFFICER", "ADMIN"})
-    @PatchMapping("/update")
-    public String update() {
-        String message = "update";
+    @RolesAllowed({"HR_MANAGER", "HR_STAFF"})
+    @PatchMapping("/user/update")
+    public String updateUser() {
+        String message = "update user";
         System.out.println(message);
         return message;
     }
 
-    @RolesAllowed({"ADMIN"})
-    @DeleteMapping("/delete")
-    public String delete() {
-        String message = "delete";
+    @RolesAllowed({"HR_MANAGER"})
+    @DeleteMapping("/user/delete")
+    public String deleteUser() {
+        String message = "delete user";
+        System.out.println(message);
+        return message;
+    }
+
+    @RolesAllowed({"PRODUCT_MANAGER", "PRODUCT_STAFF"})
+    @GetMapping("/product/get")
+    public String getProduct() {
+        String message = "get product";
+        System.out.println(message);
+        return message;
+    }
+
+    @RolesAllowed({"PRODUCT_MANAGER"})
+    @PostMapping("/product/add")
+    public String addProduct() {
+        String message = "add product";
+        System.out.println(message);
+        return message;
+    }
+
+    @RolesAllowed({"PRODUCT_MANAGER", "PRODUCT_STAFF"})
+    @PostMapping("/product/update")
+    public String updateProduct() {
+        String message = "update product";
+        System.out.println(message);
+        return message;
+    }
+
+    @RolesAllowed({"PRODUCT_MANAGER"})
+    @PostMapping("/product/delete")
+    public String deleteProduct() {
+        String message = "delete product";
         System.out.println(message);
         return message;
     }

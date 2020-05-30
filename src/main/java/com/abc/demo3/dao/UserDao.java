@@ -17,20 +17,26 @@ public class UserDao {
     private final UserRepo userRepo;
 
     @PostConstruct
-    void init(){
+    void init() {
         List<User> userList = List.of(
                 User.builder()
-                        .username("admin")
-                        .password("123")
-                        .role("ADMIN").build(),
+                        .username("david") // PRODUCT_MANAGER, HR_MANAGER
+                        .password("123").build(),
                 User.builder()
-                        .username("officer")
-                        .password("123")
-                        .role("OFFICER").build(),
+                        .username("andy")  // PRODUCT_MANAGER
+                        .password("123").build(),
                 User.builder()
-                        .username("staff")
-                        .password("123")
-                        .role("STAFF").build());
+                        .username("amber") // PRODUCT_STAFF
+                        .password("123").build(),
+                User.builder()
+                        .username("bob")   // HR_MANAGER
+                        .password("123").build(),
+                User.builder()
+                        .username("bill")  // HR_STAFF
+                        .password("123").build(),
+                User.builder()
+                        .username("clare") // PRODUCT_STAFF, HR_STAFF
+                        .password("123").build());
 
         userRepo.saveAll(userList);
     }
@@ -44,4 +50,5 @@ public class UserDao {
     public Optional<User> getByUsername(String username) {
         return userRepo.findByUsername(username);
     }
+
 }

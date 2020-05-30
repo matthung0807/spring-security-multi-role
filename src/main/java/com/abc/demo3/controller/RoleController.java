@@ -11,15 +11,15 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/role")
+public class RoleController {
 
     private final UserService userService;
 
     @RolesAllowed("HR_MANAGER")
     @GetMapping("/all")
-    public List<String> getAllUserNames() {
-       return userService.getAllUserNames();
+    public List<String> getAllRoleNames() {
+        return userService.getAllRoleNames();
     }
 
 }
